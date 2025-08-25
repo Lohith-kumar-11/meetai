@@ -11,7 +11,7 @@ import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_POAGE_SIZE, MIN_PAGE_SIZE } from "
 export const agentsRouter = createTRPCRouter({
     getOne: protectedProcedure
     .input(z.object({id: z.string()}))
-    .query(async ({input}) => {
+    .query(async ({input, ctx}) => {
         const [exitingAgent] = await db
         .select({
             ...getTableColumns(agents),
@@ -19,7 +19,16 @@ export const agentsRouter = createTRPCRouter({
 
         })
         .from(agents)
-        .where(eq(agents.id, input.id))
+        .where(
+            and(
+                eq(agents.id, input.id),
+                eq(agents.user_id, ctx.auth.user.id),
+            )
+        )
+
+        if(!exitingAgent){
+            throw new TRPCError({ code: "NOT_FOUND", message: "Agent not found"});
+        }
 
 
         return exitingAgent;
