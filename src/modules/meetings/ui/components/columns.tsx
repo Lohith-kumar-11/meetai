@@ -73,8 +73,17 @@ export const columns: ColumnDef<MeetingGeMany[number]>[] = [
     accessorKey: "status",
     header: "Status",
     cell: ({ row }) => {
-        const Icon = statusIconMap[row.original.status as keyof typeof statusIconMap];
-        if (!Icon) return <Badge variant="outline">Unknown</Badge>; //change
+        const status = row.original.status as keyof typeof statusIconMap;
+
+        const Icon = statusIconMap[status];
+        if (!Icon) {
+            return (
+                <Badge variant="outline" className="capitalize text-muted-foreground">
+                <ClockArrowUpIcon className="size-4" />
+                upcoming
+                </Badge>
+            );
+            }
         return (
             <Badge
                 variant="outline"
