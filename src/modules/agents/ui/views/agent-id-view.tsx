@@ -98,7 +98,7 @@ export const AgentIdView = ({ agentId}: Props) => {
 export const AgentsIdViewLoading = () => {
     return (
         <LoadingState 
-        title="LoadingAagent" 
+        title="Loading Agent" 
         description="this may take a few seconds"
         />
     )
