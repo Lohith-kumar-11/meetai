@@ -54,7 +54,7 @@ export const MeetingIdViewHeader = ({
                 </BreadcrumbList>
             </Breadcrumb>
             <DropdownMenu modal={false}>
-                <DropdownMenuTrigger>
+                <DropdownMenuTrigger asChild>
                     <Button variant={"ghost"}>
                         <MoreVerticalIcon />
                     </Button>
