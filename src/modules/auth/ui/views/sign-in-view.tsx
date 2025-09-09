@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import {FaGithub, FaGoogle} from "react-icons/fa";
 import { OctagonAlertIcon } from "lucide-react";
 import {zodResolver} from "@hookform/resolvers/zod";
+import Image from "next/image";
 
 
 import { Input } from "@/components/ui/input";
@@ -185,7 +186,7 @@ export const SignInView = () => {
                     </form>
                 </Form>
                 <div className="bg-radial from-sidebar-accent to-sidebar relatiive hidden md:flex flex-col gap-y-4 items-center justify-center">
-                    <img src="/logo.svg" alt="Image" className="h-[92px] w-[92px]" />
+                    <Image src="/logo.png" alt="Logo" width={100} height={100} />
                     <p className="test-2xl font-semibold text-white">
                         Meet.AI
                     </p>

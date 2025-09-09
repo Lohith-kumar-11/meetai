@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarImage} from "@/components/ui/avatar";
 import { generateAvatarUri } from "@/lib/avatar";
-import { Item } from "@radix-ui/react-dropdown-menu";
 
 interface Props{
     meetingId: string;
