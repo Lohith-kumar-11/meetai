@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/form"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 
 const formSchema = z.object({
@@ -37,7 +38,7 @@ const formSchema = z.object({
 
 export const SignUpView = () => {
     const router = useRouter();
-    const[error,setError] = useState<String | null>(null);
+    const[error,setError] = useState<string | null>(null);
     const[pending, setPending] = useState(false);
     
     const form = useForm<z.infer<typeof formSchema>>({
@@ -103,7 +104,7 @@ export const SignUpView = () => {
                         <div className="flex flex-col gap-6">
                             <div className="flex flex-col items-center text-center">
                                 <h1 className="text-2xl font-bold">
-                                    Let&pos;s get started
+                                    Let&apos;s get started
                                 </h1>
                                 <p className="text-muted-foreground text-balance">
                                     Create to your account
@@ -153,7 +154,7 @@ export const SignUpView = () => {
                                 name= "password"
                                 render={({field}) => (
                                     <FormItem>
-                                        <FormLabel>Paswword</FormLabel>
+                                        <FormLabel>Password</FormLabel>
                                         <FormControl>
                                             <Input
                                                 type = "password"
@@ -166,13 +167,13 @@ export const SignUpView = () => {
                                 )}
                                 />
                             </div>
-                            <div className="gird gap-3">
+                            <div className="grid gap-3">
                                 <FormField 
                                 control={form.control}
                                 name= "confirmpassword"
                                 render={({field}) => (
                                     <FormItem>
-                                        <FormLabel>Confirm Paswword</FormLabel>
+                                        <FormLabel>Confirm Pasword</FormLabel>
                                         <FormControl>
                                             <Input
                                                 type = "password"
@@ -192,7 +193,7 @@ export const SignUpView = () => {
                                 </Alert>
                             )}
                             <Button disabled = {pending} type="submit" className="w-full">
-                                Sign in
+                                Sign up
                             </Button>
                             <div className="after:border-border relative text-center text-sm after:absolute after:insert-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                                 <span className="bg-card text-muted-foreground relative z-10 p-2">
@@ -226,9 +227,15 @@ export const SignUpView = () => {
                         </div>
                     </form>
                 </Form>
-                <div className="bg-radial from-sidebar-accent to-sidebar relatiive hidden md:flex flex-col gap-y-4 items-center justify-center">
-                    <img src="/logo.svg" alt="Image" className="h-[92px] w-[92px]" />
-                    <p className="test-2xl font-semibold text-white">
+                <div className="bg-radial from-sidebar-accent to-sidebar relative hidden md:flex flex-col gap-y-4 items-center justify-center">
+                    <Image
+                        src="/logo.svg"
+                        alt="Image"
+                        width={92}
+                        height={92}
+                        className="h-[92px] w-[92px]"
+                        />
+                    <p className="text-2xl font-semibold text-white">
                         Meet.AI
                     </p>
 

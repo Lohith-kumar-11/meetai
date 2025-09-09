@@ -2,7 +2,6 @@ import { ResponsiveDialog } from "@/components/responsiv-dialog";
 
 import { MeetingForm } from "./meeting-form";
 import { useRouter } from "next/navigation";
-import { FaLeaf } from "react-icons/fa";
 
 interface NewMeetingDialogProps {
     open: boolean;
